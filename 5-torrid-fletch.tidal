@@ -1,0 +1,37 @@
+setcps (100/60/4)
+
+repeat = delay 0.6 # delayt 0.2 # delayfb 0.5
+spicy = shape 0.99 # gain 0.8
+swurl = djf sine
+none = s "bd" # gain 0
+
+{-
+   i had a dog once
+   that dog had cancer
+-}
+
+d1 $ s "gabba*3 ~ gabba*3 ~"  # lpf 500
+
+d2 $ s "~ sn:3 ~ sn:5" # spicy
+
+d3 $ s "[hh*16 | hh*13 | hh*15]" # distort 1 # room rand # sz rand
+
+d4 $ n "<0 0 3 5 7 7 12 10 0>" # "superpwm" # octave 2 # spicy # lpf 900 # repeat
+
+d5 $ n "[<[0*8] [3*8] [7*8]>/2 | <[0*4] [3*4] [7*4]>/2]" # "supermandolin"
+   # repeat # gain 1.2
+
+do
+   xfadeIn 5 8 $ none
+   xfadeIn 4 16 $ none
+   xfadeIn 3 24 $ none
+
+d2 silence
+
+xfadeIn 1 8 $ loopAt 2 $ n "0*128" # "<sn:4 sn:6 sn:2 sn:5>" # spicy # swurl
+
+xfadeIn 2 3 $ loopAt 1.5 $ n "0*128" # "<hh:4 hh:6 hh:2 hh:5>" # spicy # swurl
+
+do
+   xfadeIn 1 8 $ none
+   xfadeIn 2 8 $ none

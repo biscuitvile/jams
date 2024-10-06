@@ -1,0 +1,35 @@
+{-
+   octer octersub octersubsub
+   fshift fshiftnote fshiftphase
+   ring ringf ringdf
+   tremdp tremr
+   delay delayt delayfb lock
+   dry room sz
+   leslie lrate lsize
+   phasr phasdp
+   xsdelay tsdelay
+   freeze
+   att hold rel
+   legato
+   djf
+   lpf lpq
+   hpf hpq
+   bpf bpq
+   vowel
+   comb
+   hbrick
+   lbrick
+   distort
+   triode
+   shape
+   squiz
+   binshift
+   scram
+   crush
+   coarse
+   mode waveloss
+   krush kcutoff
+   smear
+   real imag
+   enhance
+-}

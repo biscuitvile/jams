@@ -1,0 +1,28 @@
+setcps (130/60/4)
+
+{-
+   salt and fat
+   learned a trick
+-}
+
+none = s "bd" # gain 0
+
+d1 $ n "<0 3 3 5 7 9 12 12 10 10 0>*4" # s "bassdm"
+
+d2 $ n "[3*4 | 3*8 | 3*12]" # s "supervibe" # gain 0.8 # octave 2
+
+d3 $ s "[[moog ~ ~ ~] | [~ ~ ~ ~] [moog:8 ~ ~ ~]]"
+   # delay 0.3 # delayt 0.3 # delayfb sine
+   # gain 0.85
+
+d4 $ s "supermandolin*16" # n "0" # djf sine
+
+d5 $ s "superhoover ~ ~ ~" # n "[<0 3 5 7 0 0 > | <0 3 5 7>]"
+   # djf (slow 2 sine)
+
+do
+   xfadeIn 5 8 $ none
+   xfadeIn 4 8 $ none
+   xfadeIn 3 12 $ none
+   xfadeIn 2 16 $ none
+   xfadeIn 1 16 $ none

@@ -1,0 +1,82 @@
+setcps (100/60/4)
+
+{-
+   coffee soaked rat sleeping in a ceramic mug
+   fly away float away
+-}
+
+none = s "bd" # gain 0
+
+d1 $ s "bd*4 ~ bd*2 ~" # lpf 500
+
+d2 $ s "~ sn:4 ~ sn:4"
+
+d3 $ n "<0 5 7 12 10>/2"
+   # s "[superpwm, supersaw, superzow]"
+   # octave 2
+   # room 0.4 # sz 0.7
+   # gain 0.8
+
+d4 $ s "hh*16" # djf sine # shape sine # gain 0.9
+
+d5 $ n "[0*8 7*4 12*4 0*4 | 0*8 12*8 7*4 | 12*8 0*8 | 12*8 | 0*8]"
+   # s "[superfork, supergong]"
+   # octave 4
+   # shape 0.75
+   # room 0.8 # sz 0.9
+   # gain 0.7
+
+do
+   xfadeIn 1 8 $ none
+   xfadeIn 2 8 $ none
+   xfadeIn 4 16 $ none
+   xfadeIn 5 16 $ none
+   xfadeIn 3 32 $ none
+
+xfadeIn 1 16 $ s "bd*8" # distort sine
+
+d2 $ loopAt 1 $ n "[0 | 1] ~ ~ ~" # s "[moog, superzow]"
+   # shape sine
+   # phasr 0.9 # phasdp 0.7
+   # gain 0.7
+
+d3 $ s "~ clap ~ ~" # shape 0.99 # djf rand
+   # room (range 0.2 0.9 rand) # sz (range 0.2 0.9 rand)
+   # gain 0.8
+
+do
+   xfadeIn 1 8 $ none
+   xfadeIn 2 8 $ none
+   xfadeIn 3 8 $ none
+
+d1 $ loopAt 0.5
+   $ s "[bass1:1*12 | bass1:2*8 | bass1:3*10 | bass1:4*6 | bass1:5*4]"
+   # djf (range 0.2 0.9 rand)
+   # shape (range 0.2 0.9 saw)
+   # gain 0.8
+
+d2 $ loopAt 0.5
+   $ s "[plaits:1*12 | braids:2*8 | plaits:3*10 | braids:4*6 | plaits:5*4]"
+   # djf (range 0.2 0.9 rand)
+   # shape (range 0.2 0.9 saw)
+   # gain 0.8
+
+d3 $ n "[0*24 | 0*64 | 0*32 | 0*128]"
+   # s "[superpiano, supertron, superhoover]"
+   # djf (range 0.2 0.9 $ slow 2 sine)
+   # gain 0.8
+
+do
+   xfadeIn 2 8 $ none
+   xfadeIn 3 8 $ none
+   xfadeIn 1 8 $ "<bass:3*8 bass:4*8 bass:2*8 bass:4*8>"
+      # octer (range 0.2 0.9 sine) # octersub rand # octersubsub rand
+      # room 0.5 # sz 0.5
+      # shape (range 0.2 0.9 sine)
+
+d2 $ loopAt 1 $ s "[~ stab:13 ~ stab:13 | ~ stab:13 ~ ~ | ~ ~ stab:13 ~]"
+   # djf (range 0.2 0.9 sine) # shape 0.99 # gain 0.9
+
+do
+   xfadeIn 1 8 $ none
+   xfadeIn 2 8 $ none

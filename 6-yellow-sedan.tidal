@@ -1,0 +1,23 @@
+setcps (120/60/4)
+
+{-
+   piss in the punch
+   drown in the sink
+-}
+
+none = s "bd" # gain 0
+
+d1 $ s "ulgab:3*8"
+
+d2 $ "<[bd*128 | bd*120 | bd*136]/24>"
+   # distort saw # pan sine
+   # delay 0.9 # delayt 0.25 # delayfb 0.3
+
+xfadeIn 1 16 $ s "hh*32" # distort sine
+
+d1 $ s "hh*32" # distort sine
+   # djf sine # room 0.7 # sz 0.7
+
+do
+   xfadeIn 1 8 $ none
+   xfadeIn 2 8 $ none
