@@ -25,7 +25,8 @@ d5 $ n "0*128"
    # morph (slow 3 sine)
    # lpg rand rand
    # shape saw
-   # delayt 0.3 # delayfb 0.8 # delay 0.9 # gain 0.7
+   # delayt 0.3 # delayfb 0.8 # delay 0.9
+   # gain 0.6
 
 do
    xfadeIn 5 16 $ none

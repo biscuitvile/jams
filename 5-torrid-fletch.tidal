@@ -14,7 +14,7 @@ d1 $ s "gabba*3 ~ gabba*3 ~"  # lpf 500
 
 d2 $ s "~ sn:3 ~ sn:5" # spicy
 
-d3 $ s "[hh*16 | hh*13 | hh*15]" # distort 1 # room rand # sz rand
+d3 $ s "[hh*16 | ~]" # distort 1 # room rand # sz rand
 
 d4 $ n "<0 0 3 5 7 7 12 10 0>" # "superpwm" # octave 2 # spicy # lpf 900 # repeat
 
